@@ -1,0 +1,16 @@
+Debug/
+Release/
+build/
+cmake-build-*/
+
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+*.su
+*.d
+*.log
+
+.metadata/
