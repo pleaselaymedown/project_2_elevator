@@ -1,26 +1,17 @@
-# Project 2 Elevator
+# 🛗 Project 2 Elevator 🛗 
 
 ## 📌 1. Project Summary (프로젝트 요약)
 
-STM32F411RE 기반으로 4층 엘리베이터의 층 호출, 이동, 문 개폐, 비상 정지, 상태 표시를 제어하는 임베디드 시스템 프로젝트입니다.
+STM32(MCU)을 활용하여 실제 엘리베이터와 유사한 로직의 개발
 
-내부 버튼과 외부 상/하 호출 버튼을 통해 목적 층을 예약하고, 현재 진행 방향과 호출 방향을 고려하여 다음 정지 층을 결정합니다. 또한 도어 센서, PIR 센서, 화재 감지 센서, 리미트 센서 등을 활용하여 실제 엘리베이터와 유사한 안전 제어 로직을 구현했습니다.
-
----
 
 ## ✨ 2. Key Features (주요 기능)
 
-- 내부 버튼을 통한 목적 층 예약 및 재입력 시 예약 취소 Toggle 기능
-- 외부 상/하 버튼을 통한 층 호출 기능
+- 내부 버튼을 통해 목적 층 예약 및 재입력 시 예약 취소 Toggle 기능
 - 현재 진행 방향과 같은 방향의 호출을 우선 처리하는 엘리베이터 스케줄링
-- 진행 방향 끝 지점에서는 반대 방향 호출까지 함께 처리하는 회차 정지 로직
-- 스테퍼 모터를 이용한 엘리베이터 승강 동작 제어
-- 저크 제한 기반의 가감속 제어를 적용하여 급격한 속도 변화 완화
-- 도어 열림/닫힘 센서를 이용한 문 개폐 상태 관리
 - 문 열림 유지 시간 표시 및 PIR 센서 감지 시 문 열림 시간 연장
 - 화재 감지 센서 또는 비상 버튼 입력 시 비상 모드 진입
 - 현재 층 FND 표시, 호출 상태 LED 표시, 이동 방향 LED Bar 표시
-- 층 도착 시 현재 층 수만큼 부저 출력
 
 ---
 
@@ -39,11 +30,6 @@ STM32F411RE 기반으로 4층 엘리베이터의 층 호출, 이동, 문 개폐,
 
 ![STM32](https://img.shields.io/badge/STM32F411RE-03234B?style=for-the-badge&logo=stmicroelectronics&logoColor=white)
 
-### 3.4 Collaboration Tools (협업 도구)
-
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)
-![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)
 
 ---
 
@@ -83,8 +69,6 @@ ELEVATOR/
 ├── STM32F411RETX_RAM.ld             # RAM 링커 스크립트
 └── README.md                        # 프로젝트 설명 문서
 ```
-
-> `Debug/` 폴더는 빌드 결과물이므로 GitHub 업로드 시 `.gitignore`로 제외하는 것을 권장합니다.
 
 ---
 
@@ -144,44 +128,15 @@ stateDiagram-v2
 
 ## 🎬 5. Demonstration (시연)
 
-시연 영상 또는 동작 이미지를 추가할 경우 아래 위치에 삽입하면 됩니다.
-
-```md
-[![Demo](./images/demo_thumbnail.png)](https://youtube.com/영상주소)
-```
-
-이미지를 클릭하면 시연 영상으로 이동하도록 구성할 수 있습니다.
+<a href="https://m.youtube.com/watch?v=pdpKZhSDCo0&pp=0gcJCUECo7VqN5tD">
+  <img src="images/youtube.jpg" alt="YouTube Demo" width="120">
+</a>
 
 ---
 
 ## 🎯 6. Troubleshooting (문제 해결 기록)
 
-### 6.1 버튼 중복 입력 문제 (Duplicate Input)
-
-**🔍 Issue (문제 상황)**
-
-- 내부 층 버튼을 한 번만 눌렀는데 여러 번 입력된 것처럼 처리될 수 있음
-- 내부 버튼은 Toggle 방식으로 예약과 취소를 모두 처리하기 때문에, 중복 입력이 발생하면 예약 직후 취소되는 문제가 생길 수 있음
-
-**❓ Analysis (원인 분석)**
-
-- 물리 버튼은 눌리는 순간 접점이 미세하게 흔들리는 채터링 현상이 발생함
-- 버튼 입력을 단순히 GPIO 상태만 보고 처리하면 짧은 시간 안에 여러 번 눌린 것으로 인식될 수 있음
-
-**❗ Action (해결 방법)**
-
-- `Button_t` 구조체에 이전 입력 시간과 입력 처리 여부를 저장
-- `Button_GetPressed()`에서 50ms 이상 같은 입력 상태가 유지될 때만 유효 입력으로 판단
-- 한 번 처리된 입력은 버튼을 뗄 때까지 다시 처리하지 않도록 Rising Edge 방식으로 구현
-
-**✅ Result (결과)**
-
-- 버튼을 길게 누르거나 채터링이 발생해도 한 번의 입력만 처리됨
-- 내부 층 버튼의 예약/취소 Toggle 기능이 안정적으로 동작함
-
----
-
-### 6.2 층 호출 우선순위 문제 (Floor Request Scheduling)
+### 6.1 층 호출 우선순위 문제 (Floor Request Scheduling)
 
 **🔍 Issue (문제 상황)**
 
@@ -207,7 +162,7 @@ stateDiagram-v2
 
 ---
 
-### 6.3 스테퍼 모터 급가속 문제 (Motor Acceleration Control)
+### 6.2 스테퍼 모터 급가속 문제 (Motor Acceleration Control)
 
 **🔍 Issue (문제 상황)**
 
@@ -229,58 +184,6 @@ stateDiagram-v2
 
 - 엘리베이터의 출발과 정지 동작이 단계적으로 처리됨
 - 급격한 속도 변화가 줄어들고 안정적인 층간 이동이 가능해짐
-
----
-
-### 6.4 문 끼임 및 문 동작 실패 문제 (Door Safety Control)
-
-**🔍 Issue (문제 상황)**
-
-- 문이 열리거나 닫히는 도중 센서가 정상적으로 감지되지 않으면 문 상태를 확정할 수 없음
-- 닫히는 중 장애물이 있을 경우 문을 계속 닫으면 안전 문제가 발생할 수 있음
-
-**❓ Analysis (원인 분석)**
-
-- 문 열림 센서와 문 닫힘 센서가 일정 시간 안에 감지되지 않으면 도어 모터 동작 실패로 판단해야 함
-- 문 닫힘 실패는 장애물 또는 끼임 상황일 가능성이 있음
-
-**❗ Action (해결 방법)**
-
-- `DOOR_TIMEOUT_MS`를 기준으로 문 열림/닫힘 타임아웃을 검사
-- 문 열림 실패 시 다시 닫힘 동작으로 전환
-- 문 닫힘 실패 시 다시 열림 동작으로 전환하여 Reversal 동작 구현
-- 실패 횟수가 `DOOR_FAIL_LIMIT` 이상 누적되면 시스템을 `HALT` 상태로 전환
-
-**✅ Result (결과)**
-
-- 문 동작 실패 상황에서 엘리베이터가 무한 동작하지 않도록 보호함
-- 닫힘 실패 시 다시 열리도록 구성하여 안전성을 높임
-
----
-
-### 6.5 비상 상황 처리 문제 (Emergency Control)
-
-**🔍 Issue (문제 상황)**
-
-- 화재 감지 또는 비상 버튼 입력 시 일반 운행 로직을 계속 수행하면 위험함
-- 비상 상황에서는 빠르게 정지하고 문을 열어야 함
-
-**❓ Analysis (원인 분석)**
-
-- 일반 호출 처리와 비상 처리를 같은 우선순위로 두면 비상 입력 반응이 늦어질 수 있음
-- 비상 상태에서는 기존 예약보다 안전 정지가 우선되어야 함
-
-**❗ Action (해결 방법)**
-
-- 화재 감지 센서가 활성화되거나 비상 버튼이 눌리면 `triggerEmergency()` 호출
-- 비상 플래그 `isEmergency`를 설정하고 모든 층 호출을 활성화하여 가장 가까운 층에 정지하도록 유도
-- 문이 열린 뒤 `HALT` 상태로 전환하여 시스템을 정지
-- 비상 상태 LED를 켜서 현재 상태를 외부에서 확인 가능하도록 구성
-
-**✅ Result (결과)**
-
-- 화재 감지 또는 비상 버튼 입력 시 일반 운행보다 비상 처리 로직이 우선 수행됨
-- 정지 후 문을 열고 시스템을 정지하여 안전 상태로 전환함
 
 ---
 
@@ -345,8 +248,5 @@ stateDiagram-v2
 
 ---
 
-## 9. Summary (요약)
-
-이 프로젝트는 STM32F411RE를 기반으로 실제 엘리베이터의 핵심 동작인 호출 예약, 방향 우선 스케줄링, 층 이동, 문 개폐, 비상 정지, 상태 표시를 구현한 임베디드 시스템입니다.
 
 단순한 모터 구동에 그치지 않고, 엘리베이터 상태를 `INIT`, `IDLE`, `MOVING`, `DOOR`, `HALT`로 나누어 FSM 방식으로 관리했습니다. 또한 버튼 디바운싱, 센서 기반 정지, 문 끼임 대응, 화재/비상 처리, 74HC595 출력 확장 등을 적용하여 안정성과 확장성을 고려했습니다.
