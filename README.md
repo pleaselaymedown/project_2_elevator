@@ -78,6 +78,7 @@ ELEVATOR/
 ---
 <br>
 ## 🎬 5. Demonstration (시연)
+<br>
 
 <a href="https://m.youtube.com/watch?v=pdpKZhSDCo0&pp=0gcJCUECo7VqN5tD">
   <img src="images/youtube.png" alt="YouTube Demo" width="120">
