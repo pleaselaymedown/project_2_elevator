@@ -94,7 +94,7 @@ ELEVATOR/
 
 ## 🎯 6. Troubleshooting (문제 해결 기록)
 
-## 6.1 <층 호출 우선순위 문제 (Floor Request Scheduling)>
+## 6.1 <층 호출 우선순위 문제>
 
 **🔍 Issue (문제 상황)**
 
@@ -119,8 +119,9 @@ ELEVATOR/
 - 진행 방향 우선 처리와 회차 정지 로직을 통해 실제 엘리베이터와 유사한 스케줄링을 구현함
 
 ---
+<br>
 
-## 6.2 <스테퍼 모터 급가속 문제 (Motor Acceleration Control)>
+## 6.2 <스테퍼 모터 급가속 문제>
 
 **🔍 Issue (문제 상황)**
 
@@ -144,8 +145,9 @@ ELEVATOR/
 - 급격한 속도 변화가 줄어들고 안정적인 층간 이동이 가능해짐
 
 ---
+<br>
 
-## 6.3 <출력 핀 부족 및 상태 표시 문제 (Display Output Expansion)>
+## 6.3 <출력 핀 부족 및 상태 표시 문제>
 
 **🔍 Issue (문제 상황)**
 
