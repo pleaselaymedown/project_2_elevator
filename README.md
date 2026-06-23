@@ -82,15 +82,9 @@ ELEVATOR/
 ### 5.1 Final Product (완성품)
 <br>
 
-<img src="images/inside.png" alt="Inside View" width="350" > &nbsp;&nbsp;&nbsp; <img src="images/outside.png" alt="Outside View" height="500">
+<img src="images/inside.png" alt="Inside View" width="350" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="images/outside.png" alt="Outside View" height="500">
 
-내부 
-
-
-/ 
-
-
-외부 사진
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 내부 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 외부 사진
 
 <br>
 
