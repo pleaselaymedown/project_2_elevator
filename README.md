@@ -16,7 +16,7 @@ STM32(MCU)을 활용하여 실제 엘리베이터와 유사한 로직의 개발
 - 화재 감지 센서 또는 비상 버튼 입력 시 비상 모드 진입
 - 현재 층 FND 표시, 호출 상태 LED 표시, 이동 방향 LED Bar 표시
 
----
+<br>
 
 ## ⚙️ 3. Tech Stack (기술 스택)
 
@@ -35,7 +35,7 @@ STM32(MCU)을 활용하여 실제 엘리베이터와 유사한 로직의 개발
 
 
 ---
-
+<br>
 ## 🧩 4. Project Structure (프로젝트 구조)
 
 ### 4.1 Project Tree (프로젝트 트리)
@@ -128,7 +128,7 @@ stateDiagram-v2
 ```
 
 ---
-
+<br>
 ## 🎬 5. Demonstration (시연)
 
 <a href="https://m.youtube.com/watch?v=pdpKZhSDCo0&pp=0gcJCUECo7VqN5tD">
@@ -136,7 +136,7 @@ stateDiagram-v2
 </a>
 
 ---
-
+<br>
 ## 🎯 6. Troubleshooting (문제 해결 기록)
 
 ### 6.1 층 호출 우선순위 문제 (Floor Request Scheduling)
@@ -215,7 +215,7 @@ stateDiagram-v2
 - 현재 층, 호출 상태, 문 상태, 이동 방향을 사용자가 직관적으로 확인할 수 있음
 
 ---
-
+<br>
 ## 7. Code Flow (전체 코드 흐름)
 
 ```text
@@ -235,7 +235,7 @@ stateDiagram-v2
 ```
 
 ---
-
+<br>
 ## 8. Main Modules (주요 모듈 설명)
 
 | 파일 | 역할 |
