@@ -36,6 +36,7 @@ STM32(MCU)을 활용하여 실제 엘리베이터와 유사한 로직의 개발
 
 ---
 <br>
+---
 
 ## 🧩 4. Project Structure (프로젝트 구조)
 
@@ -77,6 +78,8 @@ ELEVATOR/
 
 ---
 <br>
+---
+
 ## 🎬 5. Demonstration (시연)
 <br>
 
@@ -87,6 +90,8 @@ ELEVATOR/
 
 ---
 <br>
+---
+
 ## 🎯 6. Troubleshooting (문제 해결 기록)
 
 ### 6.1 층 호출 우선순위 문제 (Floor Request Scheduling)
