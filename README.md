@@ -90,7 +90,7 @@ ELEVATOR/
 <br>
 
 ### 5.2 Demonstration (시연영상)
-
+<br>
 <a href="https://m.youtube.com/watch?v=pdpKZhSDCo0&pp=0gcJCUECo7VqN5tD">
   <img src="images/youtube.png" alt="YouTube Demo" width="500">
 </a> </p> <b>
