@@ -76,7 +76,19 @@ ELEVATOR/
 <br>
 <br>
 
-## 🎬 5. Demonstration (시연)
+## 🎬 Final Product & Demonstration (완성품 및 시연)
+<br>
+
+### 5.1 Final Product (완성품)
+<br>
+
+<img src="images/inside.png" alt="Inside View" width="350">
+<img src="images/outside.png" alt="Outside View" width="350">
+
+*내부 
+/ 
+외부 사진*
+
 <br>
 
 <a href="https://m.youtube.com/watch?v=pdpKZhSDCo0&pp=0gcJCUECo7VqN5tD">
