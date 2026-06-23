@@ -1,9 +1,12 @@
 # 🛗 Project 2 Elevator 🛗 
 
+<br>
+
 ## 📌 1. Project Summary (프로젝트 요약)
 
 STM32(MCU)을 활용하여 실제 엘리베이터와 유사한 로직의 개발
 
+<br>
 
 ## ✨ 2. Key Features (주요 기능)
 
