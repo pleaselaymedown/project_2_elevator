@@ -34,7 +34,7 @@ STM32(MCU)을 활용하여 실제 엘리베이터와 유사한 로직의 개발
 ![STM32](https://img.shields.io/badge/STM32F411RE-03234B?style=for-the-badge&logo=stmicroelectronics&logoColor=white)
 
 
----
+
 <br>
 ---
 
@@ -76,7 +76,7 @@ ELEVATOR/
 ```
 
 
----
+
 <br>
 ---
 
@@ -88,13 +88,13 @@ ELEVATOR/
 </a> </p> <b>이미지를 클릭하면 영상으로 이동합니다.</b> </p>
 
 
----
+
 <br>
 ---
 
 ## 🎯 6. Troubleshooting (문제 해결 기록)
 
-### 6.1 층 호출 우선순위 문제 (Floor Request Scheduling)
+## 6.1 <층 호출 우선순위 문제 (Floor Request Scheduling)>
 
 **🔍 Issue (문제 상황)**
 
@@ -120,7 +120,7 @@ ELEVATOR/
 
 ---
 
-### 6.2 스테퍼 모터 급가속 문제 (Motor Acceleration Control)
+## 6.2 <스테퍼 모터 급가속 문제 (Motor Acceleration Control)>
 
 **🔍 Issue (문제 상황)**
 
@@ -145,7 +145,7 @@ ELEVATOR/
 
 ---
 
-### 6.3 출력 핀 부족 및 상태 표시 문제 (Display Output Expansion)
+## 6.3 <출력 핀 부족 및 상태 표시 문제 (Display Output Expansion)>
 
 **🔍 Issue (문제 상황)**
 
