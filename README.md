@@ -80,8 +80,9 @@ ELEVATOR/
 ## 🎬 5. Demonstration (시연)
 
 <a href="https://m.youtube.com/watch?v=pdpKZhSDCo0&pp=0gcJCUECo7VqN5tD">
-  <img src="images/youtube.jpg" alt="YouTube Demo" width="120">
-</a>
+  <img src="images/youtube.png" alt="YouTube Demo" width="120">
+</a> </p> <b>이미지를 클릭하면 영상으로 이동합니다.</b> </p>
+
 
 ---
 <br>
