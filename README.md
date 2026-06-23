@@ -36,6 +36,7 @@ STM32(MCU)을 활용하여 실제 엘리베이터와 유사한 로직의 개발
 
 ---
 <br>
+
 ## 🧩 4. Project Structure (프로젝트 구조)
 
 ### 4.1 Project Tree (프로젝트 트리)
@@ -73,59 +74,6 @@ ELEVATOR/
 └── README.md                        # 프로젝트 설명 문서
 ```
 
----
-
-### 4.2 Hardware BlockDiagram (하드웨어 블록다이어그램)
-
-```mermaid
-flowchart LR
-    A[STM32F411RE MCU] --> B[Stepper Motor Driver]
-    B --> C[Elevator Cabin Movement]
-
-    A --> D[Door Motor Driver]
-    D --> E[Door Open / Close]
-
-    F[Internal Floor Buttons] --> A
-    G[External Up / Down Buttons] --> A
-    H[Emergency Button] --> A
-
-    I[Upper / Lower Floor Sensors] --> A
-    J[Low Limit Sensor] --> A
-    K[Door Open / Door Closed Sensors] --> A
-    L[PIR Sensor] --> A
-    M[Flame Sensor] --> A
-
-    A --> N[74HC595 Shift Register]
-    N --> O[FND Current Floor Display]
-    N --> P[Call Status LEDs]
-
-    A --> Q[LED Bar]
-    A --> R[Buzzer]
-```
-
----
-
-### 4.3 State Machine (상태 머신)
-
-```mermaid
-stateDiagram-v2
-    [*] --> INIT
-
-    INIT --> DOOR: 1층 기준 위치 정렬 완료
-    DOOR --> IDLE: 문 닫힘 완료
-
-    IDLE --> DOOR: 현재 층 호출 / 문 열림 버튼
-    IDLE --> MOVING: 다른 층 호출 발생
-    IDLE --> DOOR: 비상 상황 발생
-
-    MOVING --> DOOR: 목표 층 도착
-    MOVING --> HALT: 문 열림 감지 / 층 범위 오류
-
-    DOOR --> IDLE: 문 닫힘 완료
-    DOOR --> HALT: 비상 상황 / 문 동작 실패 누적
-
-    HALT --> [*]
-```
 
 ---
 <br>
@@ -190,7 +138,7 @@ stateDiagram-v2
 
 ---
 
-### 6.6 출력 핀 부족 및 상태 표시 문제 (Display Output Expansion)
+### 6.3 출력 핀 부족 및 상태 표시 문제 (Display Output Expansion)
 
 **🔍 Issue (문제 상황)**
 
@@ -214,42 +162,8 @@ stateDiagram-v2
 - 적은 수의 MCU 핀으로 여러 출력 장치를 제어할 수 있음
 - 현재 층, 호출 상태, 문 상태, 이동 방향을 사용자가 직관적으로 확인할 수 있음
 
----
-<br>
-## 7. Code Flow (전체 코드 흐름)
-
-```text
-1. HAL_Init() 및 시스템 클럭 설정
-2. GPIO, DMA, UART, TIM3, TIM9, TIM10, TIM11 초기화
-3. 버튼 구조체 초기화
-4. 스테퍼 모터 PWM 초기화
-5. 센서 초기 상태 읽기
-6. while(1) 반복
-   ├── 내부/외부 버튼 입력 확인
-   ├── PIR 센서, 화재 센서, 비상 버튼 확인
-   ├── elevatorFSMUpdate()로 상태 머신 실행
-   ├── 현재 층 FND 표시
-   ├── 호출 상태 LED 출력
-   ├── 도착 부저 출력
-   └── 이동 방향 LED Bar 갱신
-```
 
 ---
 <br>
-## 8. Main Modules (주요 모듈 설명)
-
-| 파일 | 역할 |
-|---|---|
-| `main.c` | 엘리베이터 전체 상태 머신, 층 호출 스케줄링, 도어 제어, 비상 처리, 표시 장치 제어 |
-| `button.c` | 버튼 디바운싱과 1회 입력 감지 처리 |
-| `stepper.c` | 64단계 마이크로스텝 기반 스테퍼 모터 회전 제어 |
-| `dc_motor.c` | DC 모터 정방향/역방향/정지 제어 |
-| `FND_595.c` | 74HC595 시프트 레지스터를 이용한 FND 및 LED 출력 제어 |
-| `gpio.c` | 버튼, 센서, LED, 부저, 모터 방향 핀 초기화 |
-| `tim.c` | PWM, 스텝 인터럽트, 도어 카운터, us 지연용 타이머 설정 |
-| `stm32f4xx_it.c` | 외부 인터럽트와 타이머 인터럽트 처리 |
-
----
 
 
-단순한 모터 구동에 그치지 않고, 엘리베이터 상태를 `INIT`, `IDLE`, `MOVING`, `DOOR`, `HALT`로 나누어 FSM 방식으로 관리했습니다. 또한 버튼 디바운싱, 센서 기반 정지, 문 끼임 대응, 화재/비상 처리, 74HC595 출력 확장 등을 적용하여 안정성과 확장성을 고려했습니다.
