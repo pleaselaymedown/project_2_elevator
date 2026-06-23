@@ -29,10 +29,6 @@ STM32(MCU)을 활용하여 실제 엘리베이터와 유사한 로직의 개발
 ![STM32CubeIDE](https://img.shields.io/badge/STM32CubeIDE-03234B?style=for-the-badge&logo=stmicroelectronics&logoColor=white)
 ![STM32CubeMX](https://img.shields.io/badge/STM32CubeMX-03234B?style=for-the-badge&logo=stmicroelectronics&logoColor=white)
 
-### 3.3 MCU / Board
-
-![STM32](https://img.shields.io/badge/STM32F411RE-03234B?style=for-the-badge&logo=stmicroelectronics&logoColor=white)
-
 
 
 <br>
@@ -175,4 +171,7 @@ ELEVATOR/
 ---
 <br>
 
-
+## 🔧 7. Future Improvements (개선사항)
+- 현재보다 더 많은 층을 제어할 수 있도록 확장하여 다층 엘리베이터 시스템으로 발전
+- 내부 버튼과 외부 호출 버튼 분리 처리
+- LCD에 현재 층만 표시하는 것이 아니라 이동 방향, 문 상태, 비상 상태까지 표시하도록 확장
